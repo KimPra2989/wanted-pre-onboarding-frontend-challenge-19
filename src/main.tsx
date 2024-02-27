@@ -1,10 +1,17 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
+import React from "react"
+import ReactDOM from "react-dom/client"
+import App from "./App.tsx"
+import "./index.css"
+import { Global } from "@emotion/react"
+import globalStyles from "./styles/globalStyles"
+import { Provider } from "react-redux"
+import store from "./store/store.ts"
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <Global styles={globalStyles} />
+      <App />
+    </Provider>
   </React.StrictMode>,
 )

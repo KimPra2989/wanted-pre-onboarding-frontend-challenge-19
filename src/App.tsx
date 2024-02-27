@@ -1,33 +1,48 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// import { useState } from "react"
+import "./App.css"
+import List from "./components/List/List"
+import Input from "./components/Input"
+import Header from "./components/Header/Header"
+import { useDispatch, useSelector } from "react-redux"
+import Button from "./components/Button"
+import { deleteList } from "./store/Slices/listSlice"
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  // const [count, setCount] = useState(0)
+  const list = useSelector((state: { list: string[] }) => state.list)
+  const dispatch = useDispatch();
+  const deleteHandler = (idx: number) => {
+    dispatch(deleteList(idx))
+  }
+  console.log(list)
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div
+        css={{
+          padding: "20px 20px",
+          textAlign: "center",
+          width: "640px",
+          margin: "0 auto",
+          backgroundColor: "#cec7ab",
+        }}
+      >
+        <Header />
+        {list.map((item, idx) => (
+          <List key={item + idx}>
+            <p>{item}</p>
+            <Button
+              width="10%"
+              css={{
+                marginLeft: "auto",
+              }}
+              onClick={()=>{deleteHandler(idx)}}
+            >
+              삭제
+            </Button>
+          </List>
+        ))}
+        <Input />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
