@@ -16,5 +16,5 @@ export default defineConfig({
       },
     }),
   ],
-  base: "https://kimpra2989.github.io/wanted-pre-onboarding-frontend-challenge-19/"
+  base: "/wanted-pre-onboarding-frontend-challenge-19/"
 });
