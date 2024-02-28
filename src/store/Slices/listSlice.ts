@@ -2,7 +2,7 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit"
 
 export const listSlice = createSlice({
   name: "list",
-  initialState: ["적당한 내용"],
+  initialState: ["initialState", "state2"],
   reducers: {
     add: (state, action: PayloadAction<string>) => {
       state.push(action.payload)
@@ -14,4 +14,3 @@ export const listSlice = createSlice({
 })
 
 export const { add, deleteList } = listSlice.actions
-// export const { delete: x } = listSlice.actions

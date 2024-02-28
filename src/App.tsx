@@ -1,47 +1,37 @@
-// import { useState } from "react"
 import "./App.css"
 import List from "./components/List/List"
 import Input from "./components/Input"
 import Header from "./components/Header/Header"
-import { useDispatch, useSelector } from "react-redux"
-import Button from "./components/Button"
-import { deleteList } from "./store/Slices/listSlice"
+import { useSelector } from "react-redux"
+import { RootState } from "./store/store"
+import themeSet from "./styles/themeSet"
+import ThmeSelectButton from "./components/themeSelectButton/themeSelectButton"
 
 function App() {
-  // const [count, setCount] = useState(0)
-  const list = useSelector((state: { list: string[] }) => state.list)
-  const dispatch = useDispatch();
-  const deleteHandler = (idx: number) => {
-    dispatch(deleteList(idx))
-  }
-  console.log(list)
+  const { list, theme } = useSelector((state: RootState) => state)
+  console.log(theme)
   return (
     <>
-      <div
-        css={{
-          padding: "20px 20px",
-          textAlign: "center",
-          width: "640px",
-          margin: "0 auto",
-          backgroundColor: "#cec7ab",
-        }}
-      >
-        <Header />
-        {list.map((item, idx) => (
-          <List key={item + idx}>
-            <p>{item}</p>
-            <Button
-              width="10%"
-              css={{
-                marginLeft: "auto",
-              }}
-              onClick={()=>{deleteHandler(idx)}}
-            >
-              삭제
-            </Button>
-          </List>
-        ))}
-        <Input />
+      <div className="background" css={{
+        backgroundColor : theme.background
+      }}>
+        <div
+          className="card"
+          css={{
+            backgroundColor: theme.card,
+          }}
+        >
+          <div className="themeBtnWrapper">
+            <ThmeSelectButton themeName="loid" color={themeSet.loid.card} />
+            <ThmeSelectButton themeName="anya" color={themeSet.anya.card} />
+            <ThmeSelectButton themeName="piplup" color={themeSet.piplup.card} />
+          </div>
+          <Header />
+          {list.map((item, idx) => (
+            <List idx={idx} text={item} key={item + idx}></List>
+          ))}
+          <Input />
+        </div>
       </div>
     </>
   )
