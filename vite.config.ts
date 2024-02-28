@@ -16,4 +16,5 @@ export default defineConfig({
       },
     }),
   ],
+  base : "/wanted-pre-onboarding-frontend-challenge-19/"
 });
