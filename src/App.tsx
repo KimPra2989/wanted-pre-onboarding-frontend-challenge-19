@@ -9,7 +9,6 @@ import ThmeSelectButton from "./components/themeSelectButton/themeSelectButton"
 
 function App() {
   const { list, theme } = useSelector((state: RootState) => state)
-  console.log(theme)
   return (
     <>
       <div className="background" css={{
