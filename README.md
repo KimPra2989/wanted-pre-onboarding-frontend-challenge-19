@@ -44,7 +44,7 @@
     </header>
 
   ```
-  #### Write
+  #### Create
   input 창과 submit 버튼을 엮어 Input 컴포넌트로 만들었습니다.
   
   유저가 빈칸을 전송하려는 경우에 대비하여 예외처리를 진행했습니다.
@@ -72,7 +72,7 @@
     }
   
   ```
-  #### update
+  #### Update
   우선 list 내부의 Edit 버튼을 클릭시 로컬 state를 통해 수정모드로 바뀌게 했습니다.
 ```ts
 //List.tsx
@@ -107,7 +107,7 @@ return (
  }
  ```
   
-  #### delete
+  #### Delete
   update와 비숫한 논리로 delete 버튼을 누르면 idx를 payload로 dispatch하여 state 배열의 idx번째 요소를 삭제했습니다.
 
   ### 테마 설정
@@ -138,7 +138,7 @@ return (
 ```
 
 ## 후기
-과제가 간단한 편이어서 낮선 기술들을 연습해볼 기회라고 생각했습니다. CRA / Vite 중 안 해본 Vite를, scss / Styled-Component / Emotion 중 안 해본 Emotion을 택하여 도전하기로 했습니다. 켜놓고 화장실 한 번 갔다와야하는 CRA에 비해 Vite는 build 속도가 현저히 빨라서 놀랐습니다. 다만 build 이후에 dist/html를 열어도 cors떄문에 css/js를 못 불러와서 live server를 통해 진입하는 번거러움이 있었습니다. Emotion의 경우 styled-component와 큰 차이가 없어서 비교적 수월하게 익힐 수 있었습니다. 
+과제가 간단한 편이어서 낮선 기술들을 연습해볼 기회라고 생각했습니다. CRA / Vite 중 안 해본 Vite를, scss / Styled-Component / Emotion 중 안 해본 Emotion을 택하여 도전하기로 했습니다. 켜놓고 화장실 한 번 갔다와야하는 CRA에 비해 Vite는 build 속도가 현저히 빨라서 놀랐습니다. 다만 build 이후에 dist/html를 열어도 cors떄문에 css/js를 못 불러와서 live server를 통해 진입하는 번거러움이 있었습니다. Emotion의 경우 styled-component와 큰 차이가 없어서 비교적 수월하게 익힐 수 있었습니다. git hub 페이지 배포시에 경로 설정을 잘못해서 5시간 정도 날렸습니다. 하는 내내 왜안돼만 반복했는데...이젠 잘 할 수 있어요..증말로
 
 ### 아쉬운 점
 초기 기획 단계에서 사용자에 대한 고민, UI와 디자인에 대한 고민, 구현할 기능에 대한 고민 등 많은 고민을 했었습니다. 그 중 몇 가지 해결하지 못한 부분이 있어서 아쉽습니다.
